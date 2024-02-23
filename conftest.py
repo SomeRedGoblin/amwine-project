@@ -2,6 +2,7 @@
 
 import pytest
 from selene import browser
+
 # from selenium import webdriver
 # from selenium.webdriver.chrome.options import Options
 # from utils import attach
@@ -12,6 +13,7 @@ from selene import browser
 # def load_env():
 #     load_dotenv()
 
+BASE_URL = "https://amwine.ru"
 
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
@@ -33,7 +35,7 @@ def setup_browser():
     # )
 
     # browser.config.driver = driver
-    browser.config.base_url = "https://amwine.ru"
+    browser.config.base_url = BASE_URL
     browser.config.window_width = '1920'
     browser.config.window_height = '1080'
     browser.config.timeout = 6.0
