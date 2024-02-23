@@ -18,6 +18,7 @@ class MainPage:
     def add_product_to_cart_via_search(self, product: Product):
         self.search_field.click().type(product.full_name)
         browser.element(f'[data-product_id="{product.id}"]').click()
+        browser.wait_until(browser.element('[id="header-basket-page"]').element('.header-cart-count'))
 
     def open_cart_page(self):
         self.cart.click()
