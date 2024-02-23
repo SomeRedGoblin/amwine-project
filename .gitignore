@@ -161,3 +161,5 @@ cython_debug/
 
 # Allure
 tests/allure-results
+tests/api/allure-results
+tests/web/allure-results
