@@ -1,4 +1,5 @@
-from selene import browser, have, be
+from selene import browser, have
+
 from data.products import Product
 
 
@@ -7,7 +8,7 @@ class CartPage:
         self.product_item = browser.element('.product-list-item__container')
         self.cart = browser.element('[id=basket-page]')
 
-    def check_product_in_cart(self, product: Product)-> None:
+    def check_product_in_cart(self, product: Product) -> None:
         self.product_item.element('.product-list-item__properties').element('a').should(
             have.exact_text(product.full_name))
         self.product_item.element('.product-list-item__properties').element('.text-caption').should(

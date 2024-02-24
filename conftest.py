@@ -1,7 +1,9 @@
 # import os
-
+import allure
 import pytest
 from selene import browser
+
+from model.pages.main_page import MainPage
 
 # from selenium import webdriver
 # from selenium.webdriver.chrome.options import Options
@@ -15,7 +17,8 @@ from selene import browser
 
 BASE_URL = "https://amwine.ru"
 
-@pytest.fixture(scope='function', autouse=True)
+
+@pytest.fixture(scope='function')
 def setup_browser():
     # options = Options()
     # selenoid_capabilities = {
@@ -48,3 +51,10 @@ def setup_browser():
     # attach.add_video(browser)
 
     browser.quit()
+
+
+@pytest.fixture()
+def start(setup_browser):
+    with allure.step("Открываем страницу магазина, подтверждаем возраст и город"):
+        main_page = MainPage()
+        main_page.open_with_years_and_city_confirmation()
