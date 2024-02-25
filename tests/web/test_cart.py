@@ -3,9 +3,9 @@ import pytest
 from allure_commons.types import Severity
 from selene import browser, have
 
-from data import products
-from model.pages.cart_page import CartPage
-from model.pages.main_page import MainPage
+from amwine_project.data import products
+from amwine_project.pages.cart_page import cart_page
+from amwine_project.pages.main_page import main_page
 
 
 @allure.tag("web")
@@ -17,7 +17,6 @@ class TestCart:
     @allure.title("Добавление в корзину")
     def test_add_item_to_cart(self, start):
         good_whiskey = products.caol_ila_12
-        main_page = MainPage()
 
         with allure.step(f"Ищем и добавляем товар {good_whiskey.name} в корзину"):
             main_page.add_product_to_cart_via_search(good_whiskey)
@@ -26,7 +25,6 @@ class TestCart:
             browser.element('[id="header-basket-page"]').element('.header-cart-count').should(have.exact_text('1'))
 
         with allure.step("Открываем страницу корзины"):
-            cart_page = CartPage()
             main_page.open_cart_page()
 
         with allure.step(f"Проверяем, что {good_whiskey.name} в корзине "):
@@ -37,8 +35,6 @@ class TestCart:
     @allure.title("Удаление товара из корзины")
     @pytest.mark.parametrize('product', [products.caol_ila_12, products.guinness])
     def test_remove_item_from_cart(self, start, product):
-        main_page = MainPage()
-        cart_page = CartPage()
 
         with allure.step(f"Ищем и добавляем товар  {product.name} в корзину"):
             main_page.add_product_to_cart_via_search(product)

@@ -1,6 +1,6 @@
 from selene import browser, have
 
-from data.products import Product
+from amwine_project.data.products import Product
 
 
 class FavoritesPage:
@@ -19,3 +19,6 @@ class FavoritesPage:
 
     def check_favorites_is_empty(self) -> None:
         self.product_items.element('h3').should(have.exact_text('У вас пока нет избранных товаров'))
+
+
+favorites_page = FavoritesPage()

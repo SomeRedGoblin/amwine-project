@@ -1,6 +1,6 @@
 from selene import browser
 
-from data.products import Product
+from amwine_project.data.products import Product
 
 
 class MainPage:
@@ -32,3 +32,6 @@ class MainPage:
         self.search_field.click().type(product.full_name)
         browser.element('.digi-ac-block .digi-favorite-button').click()
         browser.wait_until(self.favorites.element('.header-fav-count'))
+
+
+main_page = MainPage()

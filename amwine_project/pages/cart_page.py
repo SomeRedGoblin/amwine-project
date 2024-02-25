@@ -1,6 +1,6 @@
 from selene import browser, have
 
-from data.products import Product
+from amwine_project.data.products import Product
 
 
 class CartPage:
@@ -19,3 +19,6 @@ class CartPage:
 
     def check_cart_is_empty(self) -> None:
         self.cart.element('.app-card .text-center').should(have.exact_text('Ваша корзина пуста.'))
+
+
+cart_page = CartPage()

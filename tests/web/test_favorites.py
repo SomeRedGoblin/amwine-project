@@ -3,11 +3,9 @@ import pytest
 from allure_commons.types import Severity
 from selene import browser, have
 
-from model.pages.cart_page import CartPage
-from model.pages.main_page import MainPage
-from model.pages.favorites_page import FavoritesPage
-from api.requests.cart_api import CartApi
-from data import products
+from amwine_project.pages.main_page import main_page
+from amwine_project.pages.favorites_page import favorites_page
+from amwine_project.data import products
 
 
 @allure.tag("web")
@@ -19,8 +17,6 @@ class TestFavorites:
     @allure.title("Добавление в избранное")
     def test_add_item_to_cart(self, start):
         good_old_whiskey = products.caol_ila_12
-        main_page = MainPage()
-        favorites_page = FavoritesPage()
 
         with allure.step(f"Ищем товар и добавляем в избранное {good_old_whiskey.name}"):
             main_page.find_product_and_add_to_favorites(good_old_whiskey)
@@ -39,8 +35,6 @@ class TestFavorites:
     @allure.title("Удаление товара из избранного")
     @pytest.mark.parametrize('product', [products.caol_ila_12, products.guinness])
     def test_remove_item_from_cart(self, start, product):
-        main_page = MainPage()
-        favorites_page = FavoritesPage()
 
         with allure.step(f"Ищем товар и добавляем в избранное {product.name}"):
             main_page.find_product_and_add_to_favorites(product)

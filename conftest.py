@@ -3,7 +3,7 @@ import allure
 import pytest
 from selene import browser
 
-from model.pages.main_page import MainPage
+from amwine_project.pages.main_page import main_page
 
 # from selenium import webdriver
 # from selenium.webdriver.chrome.options import Options
@@ -56,5 +56,4 @@ def setup_browser():
 @pytest.fixture()
 def start(setup_browser):
     with allure.step("Открываем страницу магазина, подтверждаем возраст и город"):
-        main_page = MainPage()
         main_page.open_with_years_and_city_confirmation()
