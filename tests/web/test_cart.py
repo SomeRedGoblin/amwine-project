@@ -17,7 +17,6 @@ class TestCart:
     @allure.title("Добавление в корзину")
     @pytest.mark.parametrize('product', [products.caol_ila_12, products.guinness])
     def test_add_item_to_cart(self, start, product):
-
         with allure.step(f"Ищем и добавляем товар {product.name} в корзину"):
             main_page.add_product_to_cart_via_search(product)
 

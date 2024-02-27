@@ -6,11 +6,10 @@ from amwine_project.data.products import Product
 class FavoritesPage:
     def __init__(self):
         self.product_items = browser.element('.selected-products')
-        # self.cart = browser.element('[id=basket-page]')
 
     def check_product_in_favorites(self, product: Product) -> None:
         self.product_items.element('.product-list-item__name').should(
-            have.exact_text(product.description))
+            have.exact_text(product.name))
         self.product_items.element('.align-center').element('[class=mt-1]').should(
             have.exact_text(f'Артикул {product.article}'))
 

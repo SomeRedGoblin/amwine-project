@@ -3,9 +3,9 @@ import pytest
 from allure_commons.types import Severity
 from selene import browser, have
 
-from amwine_project.pages.main_page import main_page
-from amwine_project.pages.favorites_page import favorites_page
 from amwine_project.data import products
+from amwine_project.pages.favorites_page import favorites_page
+from amwine_project.pages.main_page import main_page
 
 
 @allure.tag("web")
@@ -17,8 +17,6 @@ class TestFavorites:
     @allure.title("Добавление в избранное")
     @pytest.mark.parametrize('product', [products.caol_ila_12, products.guinness])
     def test_add_item_to_favorites(self, start, product):
-
-
         with allure.step(f"Ищем товар и добавляем в избранное {product.name}"):
             main_page.find_product_and_add_to_favorites(product)
 
