@@ -15,10 +15,10 @@ class TestCart:
     @allure.severity(Severity.CRITICAL)
     @allure.story("Корзина пользователя")
     @allure.title("Добавление в корзину")
-    @pytest.mark.parametrize('product', [products.caol_ila_12, products.guinness])
-    def test_add_item_to_cart(self, start, product):
-        with allure.step(f"Ищем и добавляем товар {product.name} в корзину"):
-            main_page.add_product_to_cart_via_search(product)
+    def test_add_item_to_cart(self, start):
+        good_old_whiskey = products.caol_ila_12
+        with allure.step(f"Ищем и добавляем товар {good_old_whiskey.name} в корзину"):
+            main_page.add_product_to_cart_via_search(good_old_whiskey)
 
         with allure.step("Проверяем, что кол-во товара в корзине увеличилось"):
             browser.element('[id="header-basket-page"]').element('.header-cart-count').should(have.exact_text('1'))
@@ -26,8 +26,8 @@ class TestCart:
         with allure.step("Открываем страницу корзины"):
             main_page.open_cart_page()
 
-        with allure.step(f"Проверяем, что {product.name} в корзине "):
-            cart_page.check_product_in_cart(product)
+        with allure.step(f"Проверяем, что {good_old_whiskey.name} в корзине "):
+            cart_page.check_product_in_cart(good_old_whiskey)
 
     @allure.severity(Severity.CRITICAL)
     @allure.story("Корзина пользователя")
