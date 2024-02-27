@@ -15,11 +15,12 @@ class TestFavorites:
     @allure.severity(Severity.CRITICAL)
     @allure.story("Избранное")
     @allure.title("Добавление в избранное")
-    def test_add_item_to_cart(self, start):
-        good_old_whiskey = products.caol_ila_12
+    @pytest.mark.parametrize('product', [products.caol_ila_12, products.guinness])
+    def test_add_item_to_favorites(self, start, product):
 
-        with allure.step(f"Ищем товар и добавляем в избранное {good_old_whiskey.name}"):
-            main_page.find_product_and_add_to_favorites(good_old_whiskey)
+
+        with allure.step(f"Ищем товар и добавляем в избранное {product.name}"):
+            main_page.find_product_and_add_to_favorites(product)
 
         with allure.step("Проверяем, что кол-во товара в избранном увеличилось"):
             browser.element('.header-fav').element('.header-cart-count').should(have.exact_text('1'))
@@ -27,22 +28,21 @@ class TestFavorites:
         with allure.step("Открываем страницу избранного"):
             main_page.open_favorites_page()
 
-        with allure.step(f"Проверяем, что {good_old_whiskey.name} в избранном "):
-            favorites_page.check_product_in_favorites(good_old_whiskey)
+        with allure.step(f"Проверяем, что {product.name} в избранном "):
+            favorites_page.check_product_in_favorites(product)
 
     @allure.severity(Severity.NORMAL)
     @allure.story("Избранное")
     @allure.title("Удаление товара из избранного")
-    @pytest.mark.parametrize('product', [products.caol_ila_12, products.guinness])
-    def test_remove_item_from_cart(self, start, product):
-
-        with allure.step(f"Ищем товар и добавляем в избранное {product.name}"):
-            main_page.find_product_and_add_to_favorites(product)
+    def test_remove_item_from_favorites(self, start):
+        good_old_whiskey = products.caol_ila_12
+        with allure.step(f"Ищем товар и добавляем в избранное {good_old_whiskey.name}"):
+            main_page.find_product_and_add_to_favorites(good_old_whiskey)
 
         with allure.step("Открываем страницу избранного"):
             main_page.open_favorites_page()
 
-        with allure.step(f"Удаляем товар {product.name} из избранного"):
+        with allure.step(f"Удаляем товар {good_old_whiskey.name} из избранного"):
             favorites_page.clear_favorites()
 
         with allure.step("Проверяем что корзина пуста"):
