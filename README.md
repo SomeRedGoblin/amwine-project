@@ -101,8 +101,7 @@ allure serve build/allure-results
 
 ### Видео прохождения автотестов
 
-![autotest_gif](images/video/ui1.gif)
-<img src="./images/video/mobile1.gif" width="200">
+![autotest_gif](images/video/remove_from_favorites.gif)
 
 ----
 #### Интеграция с JIRA
