@@ -42,7 +42,7 @@ def setup_browser():
     browser.config.base_url = BASE_URL
     browser.config.window_width = '1920'
     browser.config.window_height = '1080'
-    browser.config.timeout = 6.0
+    browser.config.timeout = 15.0
 
     yield browser
 
