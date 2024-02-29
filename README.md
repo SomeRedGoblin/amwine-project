@@ -76,7 +76,7 @@ allure serve build/allure-results
 ----
 
 ### Интеграция с Allure TestOps
-> <a target="_blank" href="https://allure.autotests.cloud/project/TBD">Ссылка на проект</a>
+> <a target="_blank" href="https://allure.autotests.cloud/project/4095/dashboards">Ссылка на проект</a>
 
 #### Дашборд с общими показателями тестовых прогонов
 
