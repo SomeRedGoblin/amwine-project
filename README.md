@@ -51,7 +51,7 @@ allure serve build/allure-results
 
 
 #### Запуск автотестов в Jenkins
-1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/lesson15-hw_jenkins_full_project//">проект</a>
+1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/C09-Rusak_UI_Diploma/">проект</a>
 2. Нажать "Build with Parameters"
 3. Из списка "ENVIRONMENT" выбрать: PROD
 4. В поле "COMMENT" ввести комментарий
