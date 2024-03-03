@@ -12,10 +12,10 @@ def do_request(method: str, base_url: str, url: str = None, **kwargs) -> request
     with allure.step(f'{method.upper()} {base_url}{url}'):
         with sessions.Session() as session:
             resp = session.request(method=method, url=current_url, **kwargs)
-            if resp.headers['Content-Type'] == 'text/html; charset=UTF-8':
-                # allure.attach(body=resp.text.encode('utf8'), name='html_response',
-                #               attachment_type=AttachmentType.HTML, extension='html')
-                return resp
+            # if resp.headers['Content-Type'] == 'text/html; charset=UTF-8':
+            #     # allure.attach(body=resp.text.encode('utf8'), name='html_response',
+            #     #               attachment_type=AttachmentType.HTML, extension='html')
+            #     return resp
             message = to_curl(resp.request)
             allure.attach(body=message.encode('utf8'), name='Curl',
                           attachment_type=AttachmentType.TEXT, extension='txt')
@@ -31,5 +31,8 @@ def do_request(method: str, base_url: str, url: str = None, **kwargs) -> request
 def headers() -> dict:
     return {'Content-Type': 'application/json',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                          'Chrome/121.0.0.0 Safari/537.36'
+                          'Chrome/121.0.0.0 Safari/537.36',
+            'x-requested-with': 'XMLHttpRequest',
+            'accept': 'application / json, text / javascript, * / *; q = 0.01', 'authority': 'amwine.ru',
+            'sec-ch-ua': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"'
             }
