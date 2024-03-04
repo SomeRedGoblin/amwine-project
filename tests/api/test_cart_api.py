@@ -1,10 +1,9 @@
 import allure
-import requests.sessions
 from allure_commons.types import Severity
 from assertpy import assert_that, soft_assertions
 
-from amwine_project.shemas import cart_item_schema, cart_non_existent_items_schema
 from amwine_project.data import products
+from amwine_project.shemas import cart_item_schema, cart_non_existent_items_schema
 from amwine_project.utils.api_helper import do_request, headers
 from conftest import BASE_URL
 
