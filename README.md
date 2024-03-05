@@ -18,7 +18,7 @@
 
 ### Используемый стэк
 
-<img title="Python" src="./images/icons/python-original.svg" height="40" width="40"/> <img title="Pytest" src="./images/icons/pytest-original.svg" height="40" width="40"/> <img title="Pycharm" src="./images/icons/pycharm.png" height="40" width="40"/> <img title="Selenium" src="./images/icons/selenium-original.svg" height="40" width="40"/> <img title="Selene" src="./images/icons/selene.png" height="40" width="40"/> <img title="GitHub" src="./images/icons/github-original.svg" height="40" width="40"/> <img title="Allure Report" src="./images/icons/Allure_Report.png" height="40" width="40"/> <img title="Allure TestOps" src="./images/icons/AllureTestOps.png" height="40" width="40"/><img title="Telegram" src="./images/icons/tg.png" height="40" width="40"/><img title="Jira" src="./images/icons/jira-original.svg" height="40" width="40"/> 
+<img title="Python" src="./resources/icons/python-original.svg" height="40" width="40"/> <img title="Pytest" src="./resources/icons/pytest-original.svg" height="40" width="40"/> <img title="Pycharm" src="./resources/icons/pycharm.png" height="40" width="40"/> <img title="Selenium" src="./resources/icons/selenium-original.svg" height="40" width="40"/> <img title="Selene" src="./resources/icons/selene.png" height="40" width="40"/> <img title="GitHub" src="./resources/icons/github-original.svg" height="40" width="40"/> <img title="Allure Report" src="./resources/icons/Allure_Report.png" height="40" width="40"/> <img title="Allure TestOps" src="./resources/icons/AllureTestOps.png" height="40" width="40"/><img title="Telegram" src="./resources/icons/tg.png" height="40" width="40"/><img title="Jira" src="./resources/icons/jira-original.svg" height="40" width="40"/> 
 
 ----
 
