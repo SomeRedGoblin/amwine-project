@@ -62,15 +62,15 @@ allure serve build/allure-results
 ### Allure отчет
 #### Общие результаты
 
-![allure_report_overview](images/screenshots/allure-all-report.png)
+![allure_report_overview](resources/images/allure-all-report.png)
 
 #### Список тест кейсов
 
-![allure_reports_behaviors](images/screenshots/allure-list-test.png)
+![allure_reports_behaviors](resources/images/allure-list-test.png)
 
 #### Отчет прохождения теста
 
-![allure_reports_graphs](images/screenshots/allure-test.png)
+![allure_reports_graphs](resources/images/allure-test.png)
 
 
 ----
@@ -80,15 +80,15 @@ allure serve build/allure-results
 
 #### Дашборд с общими показателями тестовых прогонов
 
-![allure_test_ops_dashboards](images/screenshots/testops-dashboard.png)
+![allure_test_ops_dashboards](resources/images/testops-dashboard.png)
 
 #### История запуска тестовых наборов
 
-![allure_testops_launches](images/screenshots/testops-launches.png)
+![allure_testops_launches](resources/images/testops-launches.png)
 
 #### Тест кейсы
 
-![allure_testops_suites](images/screenshots/testops-all-test.png)
+![allure_testops_suites](resources/images/testops-all-test.png)
 
 ----
 
@@ -101,11 +101,11 @@ allure serve build/allure-results
 
 ### Видео прохождения автотестов
 
-![autotest_gif](images/video/remove_from_favorites.gif)
+![autotest_gif](resources/video/remove_from_favorites.gif)
 
 ----
 #### Интеграция с JIRA
 
-![allure_testops_suites](images/screenshots/jira-int.png)
+![allure_testops_suites](resources/images/jira-int.png)
 
 ----
