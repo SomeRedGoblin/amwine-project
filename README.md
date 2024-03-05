@@ -50,7 +50,7 @@ allure serve build/allure-results
 
 ### Проект в Jenkins
 
-> <a target="_blank" href="https://jenkins.autotests.cloud/job/C09-Rusak_UI_Diploma/">Ссылка</a>
+> <a target="_blank" href="https://jenkins.autotests.cloud/job/C09-Rusak_UI_API_Diploma/">Ссылка</a>
 
 #### Параметры сборки
 
