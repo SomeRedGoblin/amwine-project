@@ -12,10 +12,6 @@ def do_request(method: str, base_url: str, url: str = None, **kwargs) -> request
     with allure.step(f'{method.upper()} {base_url}{url}'):
         with sessions.Session() as session:
             resp = session.request(method=method, url=current_url, **kwargs)
-            # if resp.headers['Content-Type'] == 'text/html; charset=UTF-8':
-            #     # allure.attach(body=resp.text.encode('utf8'), name='html_response',
-            #     #               attachment_type=AttachmentType.HTML, extension='html')
-            #     return resp
             message = to_curl(resp.request)
             allure.attach(body=message.encode('utf8'), name='Curl',
                           attachment_type=AttachmentType.TEXT, extension='txt')
