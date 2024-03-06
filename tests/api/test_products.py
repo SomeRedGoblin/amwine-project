@@ -19,11 +19,13 @@ class TestProducts:
             url = '/local/templates/am/ajax/product.stocks.php'
             data = {'article': '123456789'}
             response = do_request(base_url=BASE_URL, url=url, method="POST", headers=headers(), data=data)
+
             with allure.step(f"Проверяем ответ"):
                 with soft_assertions():
                     assert_that(response.status_code == 200)
                     assert_that(response.json()['status'] == 'error')
                     assert_that(response.json()['data']['contentFormatted'] == 'нет в наличии')
+
             with allure.step("Проверяем схему ответа на соответствие модели"):
                 assert_that(
                     stocks_non_existent_product_schema.StocksNonExistentProduct.model_validate(
