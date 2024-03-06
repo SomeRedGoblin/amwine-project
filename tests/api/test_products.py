@@ -4,7 +4,7 @@ from assertpy import assert_that, soft_assertions
 
 from amwine_project.shemas import stocks_non_existent_product_schema
 from amwine_project.utils.api_helper import do_request, headers
-from conftest import BASE_URL
+from tests.conftest import BASE_URL
 
 
 @allure.tag("api")

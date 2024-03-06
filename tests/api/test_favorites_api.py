@@ -5,7 +5,7 @@ from assertpy import assert_that, soft_assertions
 from amwine_project.data import products
 from amwine_project.shemas import favorites_item_adding_schema, favorites_get_items_schema
 from amwine_project.utils.api_helper import do_request, headers
-from conftest import BASE_URL
+from tests.conftest import BASE_URL
 
 
 @allure.tag("api")
