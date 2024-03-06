@@ -32,9 +32,6 @@
 
 #### Выполнить в client:
 
-> [!NOTE]
-> Ключ выбора версии `--browser-version` не обязателен
-
 ```bash
 python -m venv .venv
 source .venv/bin/activate
