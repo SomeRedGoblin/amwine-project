@@ -15,7 +15,7 @@ class TestProducts:
     @allure.story("Наличие товара")
     @allure.title("Проверка наличия не существующего товара через API")
     def test_check_stock_for_non_existent_product(self):
-        with allure.step("test"):
+        with allure.step("Отправляем запрос проверку наличия товара"):
             url = '/local/templates/am/ajax/product.stocks.php'
             data = {'article': '123456789'}
             response = do_request(base_url=BASE_URL, url=url, method="POST", headers=headers(), data=data)
