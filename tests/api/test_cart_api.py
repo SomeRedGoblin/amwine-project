@@ -4,7 +4,7 @@ from assertpy import assert_that, soft_assertions
 
 from amwine_project.data import products
 from amwine_project.shemas import cart_item_schema, cart_non_existent_items_schema
-from amwine_project.utils.api_helper import do_request, headers
+from amwine_project.utils.api_helper import do_request, headers, log_to_console
 from tests.conftest import BASE_URL
 
 
@@ -38,6 +38,8 @@ class TestCart:
                 cart_item_schema.CartItemModel.model_validate(response.json())).is_type_of(
                 cart_item_schema.CartItemModel)
 
+        log_to_console(response)
+
     @allure.severity(Severity.NORMAL)
     @allure.story("Корзина пользователя")
     @allure.title("Добавление не существующего товара")
@@ -63,3 +65,5 @@ class TestCart:
             assert_that(
                 cart_non_existent_items_schema.CartNonExistentItem.model_validate(response.json())).is_type_of(
                 cart_non_existent_items_schema.CartNonExistentItem)
+
+        log_to_console(response)

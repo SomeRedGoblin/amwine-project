@@ -1,5 +1,5 @@
 import json
-
+import logging
 import allure
 import requests
 from allure_commons.types import AttachmentType
@@ -32,3 +32,9 @@ def headers() -> dict:
             'accept': 'application / json, text / javascript, * / *; q = 0.01', 'authority': 'amwine.ru',
             'sec-ch-ua': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"'
             }
+
+
+def log_to_console(response):
+    logging.info("Response text: %s", response.text)
+    logging.info("Request URL: %s", response.request.url)
+    logging.info("Response Code: %s", response.status_code)

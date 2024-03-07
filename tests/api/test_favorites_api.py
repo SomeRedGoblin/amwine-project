@@ -4,7 +4,7 @@ from assertpy import assert_that, soft_assertions
 
 from amwine_project.data import products
 from amwine_project.shemas import favorites_item_adding_schema, favorites_get_items_schema
-from amwine_project.utils.api_helper import do_request, headers
+from amwine_project.utils.api_helper import do_request, headers, log_to_console
 from tests.conftest import BASE_URL
 
 
@@ -35,6 +35,8 @@ class TestCart:
                 favorites_item_adding_schema.FavoritesItemAddingModel.model_validate(response.json())).is_type_of(
                 favorites_item_adding_schema.FavoritesItemAddingModel)
 
+        log_to_console(response)
+
     @allure.severity(Severity.CRITICAL)
     @allure.story("Избранное")
     @allure.title("Получение данных о товарах в избранном")
@@ -57,3 +59,5 @@ class TestCart:
             assert_that(
                 favorites_get_items_schema.FavoritesGetItemModel.model_validate(response.json())).is_type_of(
                 favorites_get_items_schema.FavoritesGetItemModel)
+
+        log_to_console(response)

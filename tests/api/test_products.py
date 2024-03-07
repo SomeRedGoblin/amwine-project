@@ -3,7 +3,7 @@ from allure_commons.types import Severity
 from assertpy import assert_that, soft_assertions
 
 from amwine_project.shemas import stocks_non_existent_product_schema
-from amwine_project.utils.api_helper import do_request, headers
+from amwine_project.utils.api_helper import do_request, headers, log_to_console
 from tests.conftest import BASE_URL
 
 
@@ -20,14 +20,16 @@ class TestProducts:
             data = {'article': '123456789'}
             response = do_request(base_url=BASE_URL, url=url, method="POST", headers=headers(), data=data)
 
-            with allure.step(f"Проверяем ответ"):
-                with soft_assertions():
-                    assert_that(response.status_code == 200)
-                    assert_that(response.json()['status'] == 'error')
-                    assert_that(response.json()['data']['contentFormatted'] == 'нет в наличии')
+        with allure.step(f"Проверяем ответ"):
+            with soft_assertions():
+                assert_that(response.status_code == 200)
+                assert_that(response.json()['status'] == 'error')
+                assert_that(response.json()['data']['contentFormatted'] == 'нет в наличии')
 
-            with allure.step("Проверяем схему ответа на соответствие модели"):
-                assert_that(
-                    stocks_non_existent_product_schema.StocksNonExistentProduct.model_validate(
-                        response.json())).is_type_of(
-                    stocks_non_existent_product_schema.StocksNonExistentProduct)
+        with allure.step("Проверяем схему ответа на соответствие модели"):
+            assert_that(
+                stocks_non_existent_product_schema.StocksNonExistentProduct.model_validate(
+                    response.json())).is_type_of(
+                stocks_non_existent_product_schema.StocksNonExistentProduct)
+
+        log_to_console(response)
