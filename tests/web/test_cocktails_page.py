@@ -12,8 +12,6 @@ class TestProductPage:
     @allure.story("Страница Коктейлей")
     @allure.title("Переход на страницу Коктейлей")
     def test_open_product_page_by_url(self, start):
-        with allure.step(f"Открываем страницу Коктейлей"):
-            cocktails_page.open()
+        cocktails_page.open()
 
-        with allure.step(f"Проверяем, что страница Коктейлей открыта "):
-            cocktails_page.check_cocktails_page_is_opened()
+        cocktails_page.check_cocktails_page_is_opened()

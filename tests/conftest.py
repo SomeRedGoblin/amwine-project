@@ -56,5 +56,4 @@ def setup_browser():
 
 @pytest.fixture()
 def start(setup_browser):
-    with allure.step("Открываем страницу магазина, подтверждаем возраст и город"):
-        main_page.open_with_years_and_city_confirmation()
+    main_page.open_with_years_and_city_confirmation()

@@ -1,3 +1,4 @@
+import allure
 from selene import browser, have
 
 from amwine_project.data.products import Product
@@ -9,16 +10,19 @@ class CartPage:
         self.cart = browser.element('[id=basket-page]')
 
     def check_product_in_cart(self, product: Product) -> None:
-        self.product_item.element('.product-list-item__properties').element('a').should(
-            have.exact_text(product.full_name))
-        self.product_item.element('.product-list-item__properties').element('.text-caption').should(
-            have.exact_text(product.article))
+        with allure.step(f"Проверяем, что {product.name} в корзине "):
+            self.product_item.element('.product-list-item__properties').element('a').should(
+                have.exact_text(product.full_name))
+            self.product_item.element('.product-list-item__properties').element('.text-caption').should(
+                have.exact_text(product.article))
 
     def clear_cart(self) -> None:
-        self.product_item.element('.product-list-item__delete').click()
+        with allure.step(f"Удаляем товар из корзины"):
+            self.product_item.element('.product-list-item__delete').click()
 
     def check_cart_is_empty(self) -> None:
-        self.cart.element('.app-card .text-center').should(have.exact_text('Ваша корзина пуста.'))
+        with allure.step("Проверяем что корзина пуста"):
+            self.cart.element('.app-card .text-center').should(have.exact_text('Ваша корзина пуста.'))
 
 
 cart_page = CartPage()

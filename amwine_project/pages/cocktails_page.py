@@ -1,3 +1,4 @@
+import allure
 from selene import browser, have
 
 
@@ -6,15 +7,17 @@ class CocktailsPage:
         self.banner = browser.element('.banner__text')
 
     def open(self) -> None:
-        browser.open('/cocktails')
+        with allure.step(f"Открываем страницу Коктейлей"):
+            browser.open('/cocktails')
 
     def check_cocktails_page_is_opened(self) -> None:
-        self.banner.should(
-            have.exact_text(
-                f'Алкогольные коктейли\n'
-                f'Сделать вечеринку или семейный ужин запоминающимися помогут вкусные '
-                f'и необычные алкогольные коктейли. У нас вы найдете рецепты самых популярных из них, как крепких, '
-                f'так и слабоалкогольных. Не забудьте поделиться ими с друзьями!'))
+        with allure.step(f"Проверяем, что страница Коктейлей открыта "):
+            self.banner.should(
+                have.exact_text(
+                    f'Алкогольные коктейли\n'
+                    f'Сделать вечеринку или семейный ужин запоминающимися помогут вкусные '
+                    f'и необычные алкогольные коктейли. У нас вы найдете рецепты самых популярных из них, как крепких, '
+                    f'так и слабоалкогольных. Не забудьте поделиться ими с друзьями!'))
 
 
 cocktails_page = CocktailsPage()
